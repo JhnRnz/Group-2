@@ -20,21 +20,32 @@ app.post("/students", (req, res) => {
 });
 
 app.patch("/students/:name", (req, res) =>{
-   
-    //"To be implemented"
+    const name = req.params.name;
+    const updatedStudentData = req.body;
 
-    //const id = req.params;
-    //const updatedStudentData = req.body;
-  
-    const updatedStudents = students.filter ((student) => studentId != id);
+    const studentIndex = students.findIndex(
+        (student) => student.name === name
+    );
+
+    if (studentIndex === -1) {
+        return res.status(404).send("Student not found");
+    }
+
+    students[studentIndex] = {
+        ...students[studentIndex],
+        ...updatedStudentData
+    };
 
     res.send(students[studentIndex]);
 
 });
 
-app.delete("/students/:id", (req, res) =>{
-   
-    //"To be implemented"
+app.delete("/students/:id", (req, res) => {
+   const id = Number(req.params.id);
+
+   students = students.filter((student) => student.id !== id);
+
+   res.send(students);  
 
 });
 
