@@ -2,11 +2,12 @@
   "name": "group-2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JhnRnz/Group-2.git"
@@ -20,7 +21,9 @@
   },
   "homepage": "https://github.com/JhnRnz/Group-2#readme",
   "dependencies": {
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "pg": "^8.23.0"
   }
 }
